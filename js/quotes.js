@@ -1,3 +1,33 @@
+/** 
+ * Quotes.js
+ * 명언 & 작성자 출력
+ */
+
+/**
+ * Math.floor()
+ * 소스값일때 값을 버린 후 번환한다.
+ */
+
+/**
+ * Math.round()
+ * 소수값에에 따라 올리거나 버림 처리하여 반환한다.
+ */
+
+/**
+ * Math.ceil()
+ * 소수값일때 값을 올린 후 반환한다.
+ */
+
+/**
+ * Math.random()
+ * 0~1(1 미포함) 구간에서 소수점의 난수를 생성
+ */
+
+/**
+ * length
+ * 배열 길이를 반환한다.
+ */
+
 const quotes = [
   {
     quote: "삶이 있는 한 희망은 있다",
@@ -152,23 +182,3 @@ const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 quote.innerText = todaysQuote.quote;
 author.innerText = todaysQuote.author;
-
-/**
- * Math.floor()
- * 소스값일때 값을 버린 후 번환한다.
- */
-
-/**
- * Math.round()
- * 소수값에에 따라 올리거나 버림 처리하여 반환한다.
- */
-
-/**
- * Math.ceil()
- * 소수값일때 값을 올린 후 반환한다.
- */
-
-/**
- * length
- * 배열 길이를 반환한다.
- */

@@ -1,5 +1,6 @@
 /**
  * Greetings.js
+ * 사용자 이름 input으로 받은 후 출력
  */
 
 const loginForm = document.querySelector("#login-form");
