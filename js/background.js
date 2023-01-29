@@ -21,6 +21,8 @@
  *     body.append(bgImages, "hi");
  */
 
+const IMAGE_CLASSNAME = "bg-image";
+
 const images = [
   "bg-image1.jpg",
   "bg-image2.jpg",
@@ -37,6 +39,8 @@ const chooseImage = images[Math.floor(Math.random() * images.length)];
 
 const bgImages = document.createElement("img");
 
+bgImages.classList.add(IMAGE_CLASSNAME);
 bgImages.src = `images/${chooseImage}`;
 
-document.body.appendChild(bgImages);
+// document.body.appendChild(bgImages); // img element 추가
+document.querySelector("body").style.backgroundImage = `url(images/${chooseImage})`; // body element background-image 추가

@@ -2,6 +2,8 @@
 
 html,
 body{
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   -webkit-text-size-adjust : none;  /* 크롬, 사파리, 오페라 신버전 */
@@ -14,10 +16,60 @@ html{
   font-size: 62.5%; /* 62.5% of the base size of 16px = 10px */
 }
 body{
-  background-color: beige;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 1.6rem;
   font-weight: 500;
-  color: #333333;
+  color: #ffffff;
+  text-shadow: 3px 3px 5px #333333;
 }
 .hidden{
   display: none;
+}
+
+
+/* Components */
+#main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  text-align: center;
+}
+#clock{
+  font-size: 10rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 3px 3px 10px #333333;
+}
+.bg-image{
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  vertical-align: top;
+}
+#weather{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#quotes{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 20px;
+}
+#quotes span{
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 3px 3px 5px #333333;
 }

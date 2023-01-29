@@ -15,35 +15,40 @@
   <title>Momentum App</title>
 </head>
 <body>
-  <!-- Login-form -->
-  <form id="login-form" class="hidden">
-    <input required maxlength="15" type="text" placeholder="What is your name?" />
-    <button>Log In</button>
-  </form>
-  <!-- //Login-form -->
-  <!-- Login Info -->
-  <h1 id="greeting" class="hidden"></h1>
-  <!-- //Login Info -->
-  <!-- Clock -->
-  <h2 id="clock">00:00</h2>
-  <!-- //Clock -->
-  <!-- todo-list -->
-  <form action="" id="todo-form">
-    <input type="text" placeholder="Write a To Do and press Enter" required />
-  </form>
-  <ul id="todo-list"></ul>
-  <!-- //todo-list -->
+  <!-- main-contents -->
+  <div id="main">
+    <!-- Clock -->
+    <h2 id="clock">00:00</h2>
+    <!-- //Clock -->
+    <!-- Login-form -->
+    <form id="login-form" class="hidden">
+      <input required maxlength="15" type="text" placeholder="What is your name?" />
+      <button>Enter</button>
+    </form>
+    <!-- //Login-form -->
+    <!-- Login Info -->
+    <h1 id="greeting" class="hidden"></h1>
+    <!-- //Login Info -->
+    <!-- todo-list -->
+    <form action="" id="todo-form">
+      <input type="text" placeholder="Write a To Do and press Enter" required />
+    </form>
+    <ul id="todo-list"></ul>
+    <!-- //todo-list -->
+  </div>
+  <!-- //main-contents -->
+  <!-- Weather -->
+  <div id="weather">
+    <span></span>
+    <span></span>
+  </div>
+  <!-- //Weather -->
   <!-- Quotes -->
   <div id="quotes">
     <span></span>
     <span></span>
   </div>
   <!-- //Quotes -->
-  <!-- Weather -->
-  <div id="weather">
-    <span></span>
-    <span></span>
-  </div>
   <!-- //Weather -->
   <!-- Script -->
   <script src="./js/greetings.js"></script>
