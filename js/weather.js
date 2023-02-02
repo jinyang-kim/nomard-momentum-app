@@ -21,7 +21,9 @@
  */
 
 // https://openweathermap.org/api 
-const API_KEY = "645ddea547c079c3f6b9787f34dedd53";
+const API_KEY = config.apikey;
+
+console.log(API_KEY);
 
 /**
  * user가 위치 정보 받는걸 성공한 경우
