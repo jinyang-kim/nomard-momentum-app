@@ -80,14 +80,17 @@ function watchFiles_stage() {
 
 // 기존 소스 및 목차 index 페이지 복사
 function file_copy() {
-  src(`${options.routes.paths.src}pub_list/**`)
+  src("./*.html")
 		.pipe(dest(options.routes.paths.build))
     .pipe(browserSync.stream());
-  src(`${options.routes.paths.src}_lib/**`)
-		.pipe(dest(static_di + "_lib"))
-    .pipe(browserSync.stream());    
-  return src(`${options.routes.paths.src}_fonts/**`)
-    .pipe(dest(static_di + "fonts"))
+  src("./css/**/*")
+		.pipe(dest(`${options.routes.paths.build}css`))
+    .pipe(browserSync.stream());
+  src("./js/**/*")
+		.pipe(dest(`${options.routes.paths.build}js`))
+    .pipe(browserSync.stream());
+  return src("./images/**/*")
+    .pipe(dest(`${options.routes.paths.build}images`))
     .pipe(browserSync.stream());
 }
 
@@ -165,36 +168,37 @@ function buildFinish(done) {
 
 exports.default = series(
   clean, 
-  img, 
-  html, 
-  styles, 
-  js, 
+  // img, 
+  // html, 
+  // styles, 
+  // js, 
   file_copy,
   parallel(browser_sync, watchFiles)
 );
 
 exports.build = series(
   clean,
-  img, 
-  html, 
-  styles, 
-  js, 
+  // img, 
+  // html, 
+  // styles, 
+  // js, 
   file_copy,
   buildFinish
 );
 exports.clean = clean;
 exports.stage = series(
   clean,
-  img, 
-  html, 
-  styles_stage, 
-  js, 
+  // img, 
+  // html, 
+  // styles_stage, 
+  // js, 
   file_copy,
   parallel(browser_sync, watchFiles_stage)
 );
 exports.deploy = series(
   clean,
-  parallel(img, html, styles_stage, js, file_copy),
+  parallel(file_copy),
+  // parallel(img, html, styles_stage, js, file_copy),
   gh,
   deploy_clean
 );

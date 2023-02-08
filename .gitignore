@@ -120,3 +120,4 @@ dist
 .idea
 
 js/api_key.js
+build/
