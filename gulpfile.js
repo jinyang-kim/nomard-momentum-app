@@ -58,7 +58,7 @@ function preview_reload(done){
 }
 
 function gh() {
-  return src("/")
+  return src("./**/*")
     .pipe(ghPages());
 }
 
