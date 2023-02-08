@@ -194,10 +194,16 @@ exports.stage = series(
 );
 exports.deploy = series(
   clean,
-  img, 
-  html, 
-  styles_stage, 
-  js, 
-  file_copy,
-  parallel(gh, deploy_clean)
+  parallel(img, html, styles_stage, js, file_copy),
+  gh,
+  deploy_clean
 );
+// exports.deploy = series(
+//   clean,
+//   img, 
+//   html, 
+//   styles_stage, 
+//   js, 
+//   file_copy,
+//   parallel(gh, deploy_clean)
+// );
