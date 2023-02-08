@@ -58,7 +58,7 @@ function preview_reload(done){
 }
 
 function gh() {
-  return src("build/**/*")
+  return src("/")
     .pipe(ghPages());
 }
 
@@ -66,6 +66,14 @@ function watchFiles() {
   watch(`${options.routes}/**/*.html`, series(html, preview_reload));
   watch(`${options.routes.scss.watch}/**/*.scss`, series(styles, html, preview_reload));
   watch(`${options.routes.scss.watch_components}/**/*.scss`, series(styles, preview_reload));
+  watch(`${options.routes.js.watch}/**/*.js`, series(js, preview_reload));
+  console.log("\n\t변경 사항 감시..\n");
+}
+
+function watchFiles_stage() {
+  watch(`${options.routes}/**/*.html`, series(html, preview_reload));
+  watch(`${options.routes.scss.watch}/**/*.scss`, series(styles, html, preview_reload));
+  watch(`${options.routes.scss.watch_components}/**/*.scss`, series(styles_stage, preview_reload));
   watch(`${options.routes.js.watch}/**/*.js`, series(js, preview_reload));
   console.log("\n\t변경 사항 감시..\n");
 }
@@ -130,7 +138,7 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
-function styles_deploy() {
+function styles_stage() {
   return src(`${options.routes.scss.src}/**/*.scss`, { since: lastRun(styles) })
     .pipe(plumber())
     .pipe(sourcemaps.init())
@@ -175,12 +183,21 @@ exports.build = series(
   buildFinish
 );
 exports.clean = clean;
+exports.stage = series(
+  clean,
+  img, 
+  html, 
+  styles_stage, 
+  js, 
+  file_copy,
+  parallel(browser_sync, watchFiles_stage)
+);
 exports.deploy = series(
   clean,
   img, 
   html, 
-  styles_deploy, 
+  styles_stage, 
   js, 
   file_copy,
-  parallel(browser_sync, watchFiles)
+  parallel(gh, deploy_clean)
 );

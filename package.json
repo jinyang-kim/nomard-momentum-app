@@ -7,6 +7,7 @@
     "clean": "gulp clean",
     "dev": "gulp",
     "build": "gulp build",
+    "stage": "gulp stage",
     "deploy": "gulp deploy"
   },
   "author": {
